@@ -1,0 +1,36 @@
+1A.  
+i think we have to use  hash table. 
+You maintain in memory (RAM) an array of "pointers" - 
+these pointers indicate a disk address, 
+which contains a bucket 
+that includes all entries with the corresponding hash value.
+so i think we can make a pointer table from name 
+to the whole data customer. 
+ex : email as primary key and another column :
+first nam, middle name, and last name.
+that table will pointer an email to whole detail data 
+from a certain patient
+
+if we can have some patient attribute to search 
+apart from the name,i will  use a B tree index,
+ so it will specify a column(s) as a key. 
+These are special data structure formats 
+that are specifically tuned(high B Tree branching factors) 
+to perform well on magnetic disk hardware, 
+where the most significant time consuming factor is 
+the seek operation(the magnetic head has to move 
+to a diff part of the file). 
+That column(s) will usually be chosen as index 
+apart from primary key if we often use that column 
+to search data . Sometimes a multi-column index 
+contains all the data requested by the query, 
+and then it doesn't need to skip back to the main file,
+ it can just read what it found and then its done.
+
+1B. Using hashmethod, you only need O(1) disk accesses
+ (which is usually the bottleneck when dealing with data bases),
+ so it should be relatively fast.
+and if we maintain B tree index is more efficient 
+then just storing the elements as a list 
+and on the occasion of a search - just do a linear search.
+
